@@ -3,7 +3,7 @@ import IconLink from "@/components/IconLink";
 import Section from "@/components/Section";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Github, Linkedin, Twitter, Mail, Briefcase, CalendarDays, BadgeInfo } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, Briefcase, CalendarDays } from "lucide-react";
 import Image from "next/image";
 
 const bio = "A passionate Android Developer and OSINT/Research enthusiast with a knack for crafting robust mobile solutions and uncovering critical insights. I thrive on challenges, continuous learning, and contributing to impactful projects. My expertise lies in building user-centric Android applications and conducting in-depth open-source intelligence investigations.";
@@ -60,7 +60,7 @@ const links = [
 export default function Home() {
   return (
     <div className="flex flex-col flex-grow">
-      <header className="py-6 md:py-10 bg-card shadow-md">
+      <header className="py-6 md:py-10 bg-card border-b">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
           <div className="flex items-center space-x-3 mb-4 md:mb-0">
             <Avatar className="h-16 w-16">
@@ -90,7 +90,7 @@ export default function Home() {
                 alt="Sayeed Joy professional portrait" 
                 width={300} 
                 height={300}
-                className="rounded-full shadow-xl border-4 border-primary object-cover"
+                className="rounded-full object-cover"
                 data-ai-hint="developer portrait"
               />
             </div>
@@ -106,7 +106,7 @@ export default function Home() {
         <Section title="Work Experience" className="bg-secondary/50">
           <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             {workExperiences.map((exp, index) => (
-              <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+              <Card key={index} className="flex flex-col border">
                 <CardHeader className="pb-4">
                   <div className="flex items-start space-x-4">
                     <Image 
@@ -169,10 +169,11 @@ function ButtonAsLink({ href, icon, label }: { href: string; icon: React.ReactNo
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 min-w-[120px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
+      className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 min-w-[120px] border border-primary hover:border-primary/90"
     >
       {icon}
       {label}
     </a>
   );
 }
+
