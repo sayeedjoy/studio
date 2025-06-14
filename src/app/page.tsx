@@ -52,7 +52,6 @@ const Linkedin = (props: { size?: number; className?: string }) => (
 
 const personalLinks = [
   { href: "https://github.com/sayeedjoy", label: "GitHub", target: "_blank", icon: Github },
-  { href: "https://twitter.com/sayeedjoy", label: "Twitter", target: "_blank", icon: Twitter },
   { href: "https://linkedin.com/in/sayeedjoy", label: "LinkedIn", target: "_blank", icon: Linkedin },
   { href: "https://blog.sayeedjoy.com", label: "Blog", icon: Rss },
 ];
