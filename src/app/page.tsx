@@ -1,5 +1,8 @@
 
+"use client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useEffect, useState } from "react";
 
 const introBio = [
   "I'm an Android Developer and OSINT specialist. I design and build secure mobile applications and conduct in-depth research to provide actionable intelligence.",
@@ -41,6 +44,12 @@ const personalProjects = [
 ];
 
 export default function Home() {
+  const [currentYear, setCurrentYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <main className="flex-grow container mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
@@ -95,7 +104,7 @@ export default function Home() {
       </main>
       <footer className="py-8 text-center">
         <p className="text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} Sayeed Joy. Built with Next.js and Tailwind CSS.
+          &copy; {currentYear ? currentYear : new Date().getFullYear()} Sayeed Joy. Built with Next.js and Tailwind CSS.
         </p>
       </footer>
     </div>
