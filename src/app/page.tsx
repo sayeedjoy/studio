@@ -33,8 +33,7 @@ import {
 } from 'lucide-react';
 
 const introBio = [
-  "I'm an Android Developer and OSINT specialist. I design and build secure mobile applications and conduct in-depth research to provide actionable intelligence.",
-  "By blending meticulous development with advanced investigative techniques, I deliver robust solutions and critical insights for complex challenges."
+  "Android Developer and OSINT specialist, building secure mobile apps and delivering actionable intelligence through advanced research and investigative techniques."
 ];
 
 // Lucide-react specific icons / Custom SVG Icons
@@ -76,9 +75,9 @@ interface WorkExperienceEntry {
 
 const workExperience: WorkExperienceEntry[] = [
   {
-    company: "Alpha Technologies",
-    role: "Lead Android Developer",
-    duration: "2021 - Present",
+    company: "Rumor Scanner",
+    role: "Co-Founder & CTO",
+    duration: "2020 - 2021",
     description: "Led the design and development of cutting-edge Android applications for various clients. Specialized in creating secure, high-performance mobile solutions using Kotlin, Java, and Jetpack Compose. Mentored junior developers and spearheaded agile development practices.",
     technologies: ["Kotlin", "Java", "Android SDK", "Jetpack Compose", "MVVM", "Coroutines", "Dagger/Hilt", "Retrofit", "Git"],
   },
@@ -136,7 +135,7 @@ export default function Home() {
       <main className="flex-grow container mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="mb-10">
           <Avatar className="h-12 w-12 mb-4 border-0">
-            <AvatarImage src="https://placehold.co/100x100.png" alt="Sayeed Joy" data-ai-hint="profile portrait" />
+            <AvatarImage src="https://sayeedjoy.com/wp-content/uploads/2023/08/cropped-sayeedjoy.webp" alt="Sayeed Joy" data-ai-hint="profile portrait" />
             <AvatarFallback>SJ</AvatarFallback>
           </Avatar>
           <h1 className="text-2xl font-semibold text-primary mb-4">
@@ -156,7 +155,7 @@ export default function Home() {
                   href={link.href}
                   target={link.target || "_self"}
                   rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
-                  className="text-sm font-bold underline text-muted-foreground hover:text-primary flex items-center gap-1"
+                  className="text-sm font-bold underline text-black hover:text-primary flex items-center gap-1"
                 >
                   <Icon size={14} />
                   {link.label}
