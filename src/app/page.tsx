@@ -1,179 +1,147 @@
-import HeadlineGenerator from "@/components/HeadlineGenerator";
-import IconLink from "@/components/IconLink";
-import Section from "@/components/Section";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Github, Linkedin, Twitter, Mail, Briefcase, CalendarDays } from "lucide-react";
-import Image from "next/image";
+import Image from "next/image"; // Keep for avatar if needed, but example uses ShadCN avatar
 
-const bio = "A passionate Android Developer and OSINT/Research enthusiast with a knack for crafting robust mobile solutions and uncovering critical insights. I thrive on challenges, continuous learning, and contributing to impactful projects. My expertise lies in building user-centric Android applications and conducting in-depth open-source intelligence investigations.";
+const introBio = [
+  "I'm an Android Developer and OSINT specialist. I design and build secure mobile applications and conduct in-depth research to provide actionable intelligence.",
+  "By blending meticulous development with advanced investigative techniques, I deliver robust solutions and critical insights for complex challenges."
+];
 
-const workExperiences = [
+const personalLinks = [
+  { href: "#resume", label: "Resume" },
+  { href: "https://youtube.com", label: "Youtube", target: "_blank" },
+  { href: "https://github.com/sayeedjoy", label: "GitHub", target: "_blank" },
+  { href: "https://twitter.com/sayeedjoy", label: "Twitter", target: "_blank" },
+  { href: "https://linkedin.com/in/sayeedjoy", label: "LinkedIn", target: "_blank" },
+  { href: "mailto:sayeed.joy@example.com", label: "Email" },
+  { href: "#blog", label: "Blog" },
+  { href: "#schedule", label: "Schedule a call" },
+];
+
+const personalProjects = [
   {
-    company: "Innovatech Solutions Ltd.",
-    logo: "https://placehold.co/40x40.png",
-    logoHint: "tech logo",
-    title: "Senior Android Developer",
-    dates: "Jan 2021 - Present",
-    description: [
-      "Lead development of cutting-edge Android applications, focusing on performance and user experience.",
-      "Collaborate with cross-functional teams to define, design, and ship new features.",
-      "Mentor junior developers and conduct code reviews to maintain high-quality standards.",
-      "Integrate third-party APIs and services, ensuring seamless functionality.",
-    ],
+    title: "PortfolioNext.js",
+    url: "https://github.com/sayeedjoy", // Generic personal project link
+    description: "This very portfolio site, built with Next.js, Tailwind CSS, and TypeScript. Showcasing modern web development practices.",
   },
   {
-    company: "Cyber Intel Group",
-    logo: "https://placehold.co/40x40.png",
-    logoHint: "cyber security",
-    title: "OSINT & Research Analyst",
-    dates: "Jul 2019 - Dec 2020",
-    description: [
-      "Conducted comprehensive open-source intelligence (OSINT) investigations for diverse clients.",
-      "Utilized advanced research methodologies and tools to gather and analyze data.",
-      "Produced detailed reports and actionable insights based on findings.",
-      "Stayed updated with the latest OSINT techniques and cybersecurity trends.",
-    ],
+    title: "OSINT Toolkit CLI",
+    url: "https://github.com/sayeedjoy", 
+    description: "A command-line interface for automating common OSINT tasks, streamlining data collection and analysis.",
   },
   {
-    company: "Mobile First Devs",
-    logo: "https://placehold.co/40x40.png",
-    logoHint: "mobile app",
-    title: "Junior Android Developer",
-    dates: "Jun 2018 - Jun 2019",
-    description: [
-      "Assisted in the development and maintenance of various Android applications.",
-      "Participated in the full software development lifecycle, from concept to deployment.",
-      "Fixed bugs and improved application performance under senior guidance.",
-      "Gained hands-on experience with Java, Kotlin, and Android SDK.",
-    ],
+    title: "SecureChat Android App",
+    url: "https://github.com/sayeedjoy",
+    description: "An end-to-end encrypted messaging application for Android, focusing on privacy and security features.",
+  },
+  {
+    title: "DevBlog Platform",
+    url: "https://github.com/sayeedjoy",
+    description: "A self-hosted blogging platform tailored for developers, featuring Markdown support and code highlighting.",
   },
 ];
 
-const links = [
-  { href: "https://github.com/sayeedjoy", icon: <Github className="h-6 w-6" />, label: "GitHub" },
-  { href: "https://linkedin.com/in/sayeedjoy", icon: <Linkedin className="h-6 w-6" />, label: "LinkedIn" },
-  { href: "https://twitter.com/sayeedjoy", icon: <Twitter className="h-6 w-6" />, label: "Twitter" },
-  { href: "mailto:sayeed.joy@example.com", icon: <Mail className="h-6 w-6" />, label: "Email" },
+const clientProjects = [
+  {
+    title: "E-commerce Site for Alpha Goods",
+    url: "#client-project-1",
+    description: "Built a scalable e-commerce platform for a growing retail business using Next.js and Shopify Headless.",
+  },
+  {
+    title: "Data Visualization Dashboard for Beta Corp",
+    url: "#client-project-2",
+    description: "Developed an interactive dashboard for visualizing complex business intelligence data using React and D3.js.",
+  },
+  {
+    title: "Mobile App for Gamma Services",
+    url: "#client-project-3",
+    description: "Created a cross-platform mobile application to improve field service operations for a logistics company.",
+  },
+  {
+    title: "Internal Tool for Delta Solutions",
+    url: "#client-project-4",
+    description: "Designed and implemented an internal management tool to streamline workflows and improve productivity.",
+  },
 ];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-grow">
-      <header className="py-6 md:py-10 bg-card border-b">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-          <div className="flex items-center space-x-3 mb-4 md:mb-0">
-            <Avatar className="h-16 w-16">
-              <AvatarImage src="https://placehold.co/100x100.png" alt="Sayeed Joy" data-ai-hint="profile picture" />
-              <AvatarFallback>SJ</AvatarFallback>
-            </Avatar>
-            <div>
-              <h1 className="text-3xl md:text-4xl font-headline font-bold text-primary">
-                Sayeed Joy
-              </h1>
-            </div>
-          </div>
-          <nav className="flex space-x-2 sm:space-x-4">
-            {links.map((link) => (
-              <IconLink key={link.label} href={link.href} icon={link.icon} label={link.label} className="text-primary hover:text-accent" />
+    <div className="min-h-screen bg-background text-foreground flex flex-col">
+      <main className="flex-grow container mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="mb-10">
+          <Avatar className="h-12 w-12 mb-4">
+            <AvatarImage src="https://placehold.co/100x100.png" alt="Sayeed Joy" data-ai-hint="profile portrait" />
+            <AvatarFallback>SJ</AvatarFallback>
+          </Avatar>
+          <h1 className="text-2xl font-semibold text-primary mb-4">
+            Hello, I'm Sayeed Joy
+          </h1>
+          {introBio.map((paragraph, index) => (
+            <p key={index} className="text-base text-foreground/80 leading-relaxed mb-3">
+              {paragraph}
+            </p>
+          ))}
+          <nav className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
+            {personalLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.target || "_self"}
+                rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
+                className="text-sm text-muted-foreground hover:text-primary hover:underline"
+              >
+                {link.label}
+              </a>
             ))}
           </nav>
         </div>
-      </header>
 
-      <main className="flex-grow">
-        <Section title="" className="pt-12 md:pt-16 bg-background">
-          <div className="container mx-auto px-4 grid md:grid-cols-5 gap-8 items-center">
-            <div className="md:col-span-2 flex justify-center">
-              <Image 
-                src="https://placehold.co/400x400.png" 
-                alt="Sayeed Joy professional portrait" 
-                width={300} 
-                height={300}
-                className="rounded-full object-cover"
-                data-ai-hint="developer portrait"
-              />
-            </div>
-            <div className="md:col-span-3 text-center md:text-left">
-              <HeadlineGenerator />
-              <p className="text-lg md:text-xl text-foreground/80 leading-relaxed">
-                {bio}
-              </p>
-            </div>
-          </div>
-        </Section>
-
-        <Section title="Work Experience" className="bg-secondary/50">
-          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-            {workExperiences.map((exp, index) => (
-              <Card key={index} className="flex flex-col border">
-                <CardHeader className="pb-4">
-                  <div className="flex items-start space-x-4">
-                    <Image 
-                      src={exp.logo} 
-                      alt={`${exp.company} logo`} 
-                      width={40} 
-                      height={40} 
-                      className="rounded-sm mt-1"
-                      data-ai-hint={exp.logoHint}
-                    />
-                    <div>
-                      <CardTitle className="text-xl font-semibold text-primary">{exp.company}</CardTitle>
-                      <CardDescription className="text-accent font-medium flex items-center">
-                        <Briefcase className="h-4 w-4 mr-2" /> {exp.title}
-                      </CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <div className="text-sm text-muted-foreground mb-3 flex items-center">
-                    <CalendarDays className="h-4 w-4 mr-2" /> {exp.dates}
-                  </div>
-                  <ul className="space-y-2 list-disc list-inside text-foreground/90">
-                    {exp.description.map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+        <div>
+          <h2 className="text-sm text-muted-foreground mb-6 mt-12">Personal.</h2>
+          <div className="space-y-6">
+            {personalProjects.map((project) => (
+              <div key={project.title}>
+                <h3>
+                  <a 
+                    href={project.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-base font-semibold text-primary hover:underline"
+                  >
+                    {project.title}
+                  </a>
+                </h3>
+                <p className="text-sm text-foreground/80 mt-1">{project.description}</p>
+              </div>
             ))}
           </div>
-        </Section>
-        
-        <Section title="Let's Connect" className="bg-background">
-          <p className="text-center text-lg text-foreground/80 mb-8 max-w-2xl mx-auto">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of something amazing. Feel free to reach out!
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            {links.map((link) => (
-              <ButtonAsLink key={link.label} href={link.href} icon={link.icon} label={link.label} />
+        </div>
+
+        <div>
+          <h2 className="text-sm text-muted-foreground mb-6 mt-12">Client.</h2>
+          <div className="space-y-6">
+            {clientProjects.map((project) => (
+              <div key={project.title}>
+                <h3>
+                  <a 
+                    href={project.url} 
+                    target={project.url.startsWith("#") ? "_self" : "_blank"}
+                    rel={project.url.startsWith("#") ? undefined : "noopener noreferrer" }
+                    className="text-base font-semibold text-primary hover:underline"
+                  >
+                    {project.title}
+                  </a>
+                </h3>
+                <p className="text-sm text-foreground/80 mt-1">{project.description}</p>
+              </div>
             ))}
           </div>
-        </Section>
+        </div>
       </main>
-
-      <footer className="py-6 bg-card text-center border-t">
-        <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Sayeed Joy. All rights reserved.
+      <footer className="py-8 text-center">
+        <p className="text-xs text-muted-foreground">
+          &copy; {new Date().getFullYear()} Sayeed Joy. Built with Next.js and Tailwind CSS.
         </p>
       </footer>
     </div>
   );
 }
-
-
-// Helper component to style links as buttons for the "Let's Connect" section
-function ButtonAsLink({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 min-w-[120px] border border-primary hover:border-primary/90"
-    >
-      {icon}
-      {label}
-    </a>
-  );
-}
-
