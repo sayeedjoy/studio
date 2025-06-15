@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
 import type { ComponentType } from 'react';
+import logo from '@/assets/img.webp';
 import {
   Smartphone,
   Code2,
@@ -58,9 +59,9 @@ const personalLinks = [
 
 const personalProjects = [
   {
-    title: "PortfolioNext.js",
-    url: "https://github.com/sayeedjoy",
-    description: "This very portfolio site, built with Next.js, Tailwind CSS, and TypeScript. Showcasing modern web development practices.",
+    title: "GymBro",
+    url: "https://github.com/sayeedjoy/GymBro",
+    description: "GymBro is a Jetpack Compose-based workout tracker that displays daily and weekly gym routines with dark mode, clean UI, and MVVM architecture",
   },
 ];
 
@@ -69,7 +70,7 @@ interface WorkExperienceEntry {
   role: string;
   duration: string;
   description: string;
-  technologies: string[];
+  // technologies: string[];
 }
 
 const workExperience: WorkExperienceEntry[] = [
@@ -77,8 +78,8 @@ const workExperience: WorkExperienceEntry[] = [
     company: "Rumor Scanner",
     role: "Co-Founder & CTO",
     duration: "2020 - 2021",
-    description: "Led the design and development of cutting-edge Android applications for various clients. Specialized in creating secure, high-performance mobile solutions using Kotlin, Java, and Jetpack Compose. Mentored junior developers and spearheaded agile development practices.",
-    technologies: ["Kotlin", "Java", "Android SDK", "Jetpack Compose", "MVVM", "Coroutines", "Dagger/Hilt", "Retrofit", "Git"],
+    description: "Led all technical operations, aligning infrastructure and development with the mission to fight misinformation. Managed cloud environments (DigitalOcean, OVHCloud, GCP) for 100K+ daily users, ensuring performance, scalability, and security. Oversaw website development, optimized user experience, and integrated third-party tools. Improved server efficiency using NGINX and Redis, and implemented load balancing, autoscaling, and disaster recovery plans.",
+    // technologies: ["Kotlin", "Java", "Android SDK", "Jetpack Compose", "MVVM", "Coroutines", "Dagger/Hilt", "Retrofit", "Git"],
   },
 ];
 
@@ -134,7 +135,7 @@ export default function Home() {
       <main className="flex-grow container mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="mb-10">
           <Avatar className="h-12 w-12 mb-4 border-0">
-            <AvatarImage src="https://sayeedjoy.com/wp-content/uploads/2023/08/cropped-sayeedjoy.webp" alt="Sayeed Joy" data-ai-hint="profile portrait" />
+            <AvatarImage src={logo.src} alt="Sayeed Joy" data-ai-hint="profile portrait" />
             <AvatarFallback>SJ</AvatarFallback>
           </Avatar>
           <h1 className="text-2xl font-semibold text-primary mb-4">
