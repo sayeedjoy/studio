@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Sayeed Joy - Developer',
+  title: 'Sayeed Joy',
   description: 'Personal portfolio of Sayeed Joy, Android Developer and OSINT/Research Expert.',
 };
 
